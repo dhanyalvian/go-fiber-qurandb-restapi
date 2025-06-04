@@ -1,0 +1,11 @@
+server:
+  appname: AppName
+  prefork: true
+  port: 8090
+
+typesense:
+  apikey: xyz
+  nodes:
+    - protocol: http
+      hostname: localhost
+      port: 8108

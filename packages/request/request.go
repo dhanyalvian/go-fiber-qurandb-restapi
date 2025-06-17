@@ -19,8 +19,8 @@ func GetPage(c *fiber.Ctx) int {
 func GetLimit(c *fiber.Ctx) int {
 	limit, _ := strconv.Atoi(c.Query("l"))
 	switch {
-	case limit > 300:
-		limit = 300
+	case limit > 114:
+		limit = 114
 	case limit <= 0:
 		limit = 20
 	}

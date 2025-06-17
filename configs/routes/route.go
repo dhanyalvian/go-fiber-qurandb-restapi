@@ -8,4 +8,5 @@ import (
 func Init(app *fiber.App) {
 	app.Get("/surat", controllers.GetListSurat)
 	app.Get("/surat/:uid", controllers.GetDetailSurat)
+	app.Get("/surat/:uid/ayat", controllers.GetListAyat)
 }

@@ -15,7 +15,7 @@ import (
 func Init(app *fiber.App) {
 	initCompress(app)
 	initCors(app)
-	initCsrf(app)
+	// initCsrf(app)
 	initHelmet(app)
 	initRequestId(app)
 	initLogger(app)

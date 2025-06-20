@@ -24,7 +24,7 @@ func GetListDocuments(
 	collection string,
 	query string,
 	fields []string,
-	queryBy string,
+	queryBy []string,
 	filters []string,
 	orders []string,
 ) entities.ResponseData {
@@ -82,7 +82,7 @@ func SearchParams(
 	collection string,
 	query string,
 	fields []string,
-	queryBy string,
+	queryBy []string,
 	filters []string,
 	orders []string,
 	page int,
@@ -95,7 +95,7 @@ func SearchParams(
 
 	searchParams := &api.SearchCollectionParams{
 		Q:             pointer.String(query),
-		QueryBy:       pointer.String(queryBy),
+		QueryBy:       pointer.String(strings.Join(queryBy, ",")),
 		FilterBy:      pointer.String(strings.Join(filters, ",")),
 		SortBy:        pointer.String(strings.Join(orders, ",")),
 		IncludeFields: pointer.String(strings.Join(fields, ",")),

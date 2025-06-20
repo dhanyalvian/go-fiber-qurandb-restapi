@@ -8,9 +8,8 @@ import (
 )
 
 func ListAyat(c *fiber.Ctx, uid string) entities.ResponseData {
-	collection := getAyatCollection()
-	fields := getListAyatFields()
-	queryBy := ""
+	collection := GetAyatCollection()
+	fields := GetListAyatFields()
 	filterBy := []string{
 		fmt.Sprintf("id_surat:=%s", uid),
 	}
@@ -19,14 +18,14 @@ func ListAyat(c *fiber.Ctx, uid string) entities.ResponseData {
 		"no:asc",
 	}
 
-	return GetListDocuments(c, collection, "", fields, queryBy, filterBy, orders)
+	return GetListDocuments(c, collection, "", fields, nil, filterBy, orders)
 }
 
-func getAyatCollection() string {
+func GetAyatCollection() string {
 	return entities.Ayat.CollectionName(entities.Ayat{})
 }
 
-func getListAyatFields() []string {
+func GetListAyatFields() []string {
 	return []string{
 		"id",
 		"id_surat",

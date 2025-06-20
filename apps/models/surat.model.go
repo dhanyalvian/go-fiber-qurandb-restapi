@@ -6,26 +6,28 @@ import (
 )
 
 func ListSurat(c *fiber.Ctx) entities.ResponseData {
-	collection := getSuratCollection()
-	fields := getListSuratFields()
-	queryBy := "name_ltn"
+	collection := GetSuratCollection()
+	fields := GetListSuratFields()
+	queryBy := []string{
+		"name_ltn",
+	}
 	orders := []string{"no:asc"}
 
 	return GetListDocuments(c, collection, "", fields, queryBy, nil, orders)
 }
 
 func DetailSurat(c *fiber.Ctx, uid string) entities.ResponseData {
-	collection := getSuratCollection()
+	collection := GetSuratCollection()
 	id := GetIdBySlug(uid)
 
 	return GetDocument(collection, id)
 }
 
-func getSuratCollection() string {
+func GetSuratCollection() string {
 	return entities.Surat.CollectionName(entities.Surat{})
 }
 
-func getListSuratFields() []string {
+func GetListSuratFields() []string {
 	return []string{
 		"id",
 		"no",
